@@ -1,0 +1,58 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+        """Create hasmap with initilization of  sum=0 and  value=1
+        
+        First at  each index of array, calculate the sum  of index element and  element before
+        Then check  if the  current sum-target is present in hashmap-->if present then   increase count with the value of that key
+        If at any point of time the complement comes as -, just  add the entry of current sum with 1
+        Then check currenet sum is presnet in hashmap, if yes then  update the value of the key and if  not present then add it"""
+        complementsum=dict()
+        complementsum[0]=1
+        
+        count=0
+        current_sum=0
+        for summ in range(0,len(nums)):
+            current_sum+=nums[summ]
+            complement=current_sum-k
+            if complement in complementsum:
+                count+=complementsum[complement]
+            if current_sum in complementsum:
+                complementsum[current_sum]+=1
+            else:
+                complementsum[current_sum]=1
+        return count
+                
+                
+                
+            
+                
+                
+            
+        ##brute force implementation
+        
+       # count=0
+        #for i in range(0, len(nums)):
+         #   for j in range(i+1,len(nums)+1):
+          #      summ=0
+           ##        summ+=nums[l]
+             #   if summ == k:
+                    
+              #      count+=1
+       # return count
+    
+    ##
+                    
+        
+      
+                
+            
+        
+       
+                
+            
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        
