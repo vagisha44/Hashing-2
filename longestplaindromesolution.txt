@@ -1,0 +1,19 @@
+class Solution:
+    def longestPalindrome(self, s):
+        """the basic concept is haset.if the element presnet in set then remove the element and add the length to +2 and if it is not there add it into set.check if set is empty,if it is then return the length else return the length+1"""
+        checkthenoexist=set()
+        length=0
+        for i in s:
+            if i in checkthenoexist:
+                checkthenoexist.remove(i)
+                length+=2
+            else:
+                checkthenoexist.add(i)
+        if len(checkthenoexist)==0:
+            return length
+        else:
+            return length+1
+                
+                
+        
+        
