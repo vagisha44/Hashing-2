@@ -1,0 +1,31 @@
+class Solution(object):
+    """we are adding 1 if it comes 0 and adding -1 when it comes 1 and"""
+    def findMaxLength(self, nums):
+        current_Sum=0
+        maxx=0
+        cursumstartindex=dict()
+        cursumstartindex[0]=-1
+        for i in range(0,len(nums)):
+            if nums[i]==0:
+                current_Sum+=1
+            else:
+                
+                current_Sum-=1
+            if current_Sum in cursumstartindex:
+                maxx=max(maxx,i-(cursumstartindex[current_Sum]))
+            else:
+                cursumstartindex[current_Sum]=i
+        return maxx
+                
+            
+                
+                
+                
+            
+        
+     
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
